@@ -81,7 +81,7 @@ function TestimonialSection() {
   };
 
   return (
-    <section className="relative w-full bg-gradient-to-r from-orange-50 to-orange-100 py-20 overflow-hidden">
+    <section className="relative w-full  py-20 overflow-hidden">
       {/* Dynamic Background Elements */}
       <div className="absolute inset-0 z-0 opacity-10">
         <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-orange-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
