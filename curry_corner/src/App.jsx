@@ -3,9 +3,9 @@ import Navbar from './components/Navbar.jsx';
 
 function App() {
   return (
-    <div className="min-h-screen bg-orange-50">
+    <div className="min-h-screen ">
       <Navbar />
-      <main className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12 flex flex-col items-center text-center">
+      <main className="mx-auto max-w-6xl px-4 sm:px-6  lg:px-8 py-12 flex flex-col items-center text-center">
         <h1 className="text-4xl sm:text-5xl font-extrabold text-orange-700 [font-family:cursive]">Welcome to Curry Corner!</h1>
         <p className="max-w-2xl text-neutral-800 mt-3">
           Discover delicious curries from around the world. Stay tuned for recipes, tips, and more!
