@@ -74,9 +74,6 @@ function Page1() {
       {/* Content overlay with continuous text animation */}
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="text-center text-white p-8 max-w-4xl mx-auto">
-          <span className="inline-block bg-orange-500/90 text-white text-sm font-semibold px-4 py-1 rounded-full mb-6 animate-pulse">
-            Today's Special
-          </span>
           
           {/* Animated title with continuous text change */}
           <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-orange-100 bg-clip-text text-transparent drop-shadow-2xl transition-all duration-1000">
@@ -96,26 +93,6 @@ function Page1() {
           </button>
         </div>
       </div>
-      
-      {/* Continuous floating elements */}
-      <div className="absolute top-10 left-10 animate-float-slow hidden lg:block">
-        <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20 rotate-3">
-          <div className="text-white text-center">
-            <div className="text-2xl font-bold">$16.99</div>
-            <div className="text-sm">Special Price</div>
-          </div>
-        </div>
-      </div>
-      
-      <div className="absolute bottom-20 right-10 animate-float-medium hidden lg:block">
-        <div className="bg-orange-500/20 backdrop-blur-md rounded-xl p-3 border border-orange-300/30 -rotate-6">
-          <div className="text-white text-center">
-            <div className="text-lg font-bold">Fresh</div>
-            <div className="text-xs">Daily Made</div>
-          </div>
-        </div>
-      </div>
-      
       {/* Navigation arrows with continuous pulse effect */}
       <button
         onClick={prevImage}
