@@ -5,37 +5,43 @@ const testimonials = [
     name: "Sophia M.",
     feedback:
       "The food here is absolutely divine! The Biryani Rice was so fragrant and full of flavor.",
-    role: "Food Blogger",
+    // role: "Food Blogger",
+    rating: 5, // Added rating for potential future use or visual enhancement
   },
   {
     name: "Liam R.",
     feedback:
       "Butter Chicken melted in my mouth — easily the best I’ve had in years!",
-    role: "Chef",
+    // role: "Chef",
+    rating: 5,
   },
   {
     name: "Isabella K.",
     feedback:
       "The Palak Paneer was creamy, rich, and cooked to perfection. Highly recommend!",
-    role: "Vegetarian Enthusiast",
+    // role: "Vegetarian Enthusiast",
+    rating: 4,
   },
   {
     name: "Ethan D.",
     feedback:
       "Tandoori Chicken was smoky, juicy, and bursting with spices. A real masterpiece.",
-    role: "Traveler",
+    // role: "Traveler",
+    rating: 5,
   },
   {
     name: "Olivia P.",
     feedback:
       "From presentation to taste, every dish was a delight. I'll definitely return!",
-    role: "Food Critic",
+    // role: "Food Critic",
+    rating: 5,
   },
   {
     name: "Noah B.",
     feedback:
       "The flavors were bold yet balanced. Truly a top-notch dining experience.",
-    role: "Gourmet Enthusiast",
+    // role: "Gourmet Enthusiast",
+    rating: 4,
   },
 ];
 
@@ -57,7 +63,7 @@ function TestimonialSection() {
     const right2 = (current + 2) % testimonials.length;
 
     if (index === current) {
-      return "z-40 scale-105 rotate-y-0 opacity-100 shadow-2xl ring-2 ring-orange-400/40";
+      return "z-40 scale-105 rotate-y-0 opacity-100 shadow-2xl"; // Removed ring-2 for highlight
     }
     if (index === left1) {
       return "z-30 -translate-x-48 scale-95 -rotate-y-15 opacity-90 blur-[1px]";
@@ -75,10 +81,17 @@ function TestimonialSection() {
   };
 
   return (
-    <section className="w-full bg-gradient-to-r from-orange-50 to-orange-100 py-20 overflow-hidden">
-      <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-14">
-          What Our Customers Say ❤️
+    <section className="relative w-full bg-gradient-to-r from-orange-50 to-orange-100 py-20 overflow-hidden">
+      {/* Dynamic Background Elements */}
+      <div className="absolute inset-0 z-0 opacity-10">
+        <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-orange-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-amber-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+        <div className="absolute top-1/2 right-0 w-24 h-24 bg-red-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+      </div>
+      
+      <div className="max-w-7xl mx-auto text-center relative z-10">
+        <h2 className="text-3xl md:text-4xl font-bold mb-14 bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
+          What Our Customers Say <span className="text-gray-800">❤️</span>
         </h2>
 
         <div className="relative flex justify-center items-center perspective-[2000px] h-[420px]">
@@ -88,15 +101,18 @@ function TestimonialSection() {
               className={`absolute transition-all duration-700 ease-in-out transform-gpu ${getClass(
                 index
               )}`}
+              style={{ backfaceVisibility: 'hidden' }} // Prevents flickering on some browsers
             >
-              <div className="bg-white rounded-3xl px-10 py-12 w-[300px] md:w-[360px] shadow-xl hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.3)] hover:-translate-y-2 transition-all duration-500">
+              <div className="bg-white rounded-3xl px-10 py-12 w-[300px] md:w-[360px] shadow-xl hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.3)] transition-all duration-500 transform hover:-translate-y-2">
                 <p className="text-lg md:text-xl italic text-gray-700 mb-6 leading-relaxed">
                   "{t.feedback}"
                 </p>
                 <h4 className="text-xl font-semibold text-gray-900">
                   {t.name}
                 </h4>
-                
+                <span className="text-sm text-orange-600 font-medium">
+                  {t.role}
+                </span>
               </div>
             </div>
           ))}
@@ -108,7 +124,7 @@ function TestimonialSection() {
             <button
               key={index}
               onClick={() => setCurrent(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              className={`w-3 h-3 rounded-full transition-all duration-200 ${
                 index === current
                   ? "bg-orange-600 scale-125 shadow-md"
                   : "bg-gray-300 hover:bg-orange-400"
