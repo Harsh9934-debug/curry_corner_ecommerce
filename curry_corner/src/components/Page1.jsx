@@ -20,7 +20,7 @@ function Page1() {
   }, [images.length]);
 
   return (
-    <section id="menu" className="relative w-full h-[55vh] md:h-[65vh] lg:h-[90vh] overflow-hidden">
+    <section id="menu" className="relative w-full h-[65vh] md:h-[65vh] lg:h-[90vh] overflow-hidden">
       {images.map((img, index) => (
         <div 
           key={index}
@@ -63,3 +63,7 @@ function Page1() {
 }
 
 export default Page1;
+
+
+
+// make this section more better add some animation in it and  make this look more better
