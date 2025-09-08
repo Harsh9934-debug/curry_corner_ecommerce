@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 const testimonials = [
   {
@@ -6,28 +6,36 @@ const testimonials = [
     feedback:
       "The food here is absolutely divine! The Biryani Rice was so fragrant and full of flavor.",
     role: "Food Blogger",
-    rating: 5,
   },
   {
     name: "Liam R.",
     feedback:
       "Butter Chicken melted in my mouth — easily the best I’ve had in years!",
     role: "Chef",
-    rating: 5,
   },
   {
     name: "Isabella K.",
     feedback:
       "The Palak Paneer was creamy, rich, and cooked to perfection. Highly recommend!",
     role: "Vegetarian Enthusiast",
-    rating: 4,
   },
   {
     name: "Ethan D.",
     feedback:
       "Tandoori Chicken was smoky, juicy, and bursting with spices. A real masterpiece.",
     role: "Traveler",
-    rating: 5,
+  },
+  {
+    name: "Olivia P.",
+    feedback:
+      "From presentation to taste, every dish was a delight. I'll definitely return!",
+    role: "Food Critic",
+  },
+  {
+    name: "Noah B.",
+    feedback:
+      "The flavors were bold yet balanced. Truly a top-notch dining experience.",
+    role: "Gourmet Enthusiast",
   },
 ];
 
@@ -42,60 +50,53 @@ function TestimonialSection() {
     return () => clearInterval(interval);
   }, []);
 
-  const getCardClass = (index) => {
-    const offset = index - current;
-    if (offset === 0) {
-      return "opacity-100 scale-110 z-20";
+  const getClass = (index) => {
+    const left1 = (current - 1 + testimonials.length) % testimonials.length;
+    const left2 = (current - 2 + testimonials.length) % testimonials.length;
+    const right1 = (current + 1) % testimonials.length;
+    const right2 = (current + 2) % testimonials.length;
+
+    if (index === current) {
+      return "z-40 scale-105 rotate-y-0 opacity-100 shadow-2xl ring-2 ring-orange-400/40";
     }
-    if (offset === 1 || offset === -testimonials.length + 1) {
-      return "opacity-60 scale-90 translate-x-32 z-10";
+    if (index === left1) {
+      return "z-30 -translate-x-48 scale-95 -rotate-y-15 opacity-90 blur-[1px]";
     }
-    if (offset === -1 || offset === testimonials.length - 1) {
-      return "opacity-60 scale-90 -translate-x-32 z-10";
+    if (index === right1) {
+      return "z-30 translate-x-48 scale-95 rotate-y-15 opacity-90 blur-[1px]";
     }
-    return "opacity-0 scale-75 z-0 pointer-events-none";
+    if (index === left2) {
+      return "z-20 -translate-x-80 scale-90 -rotate-y-25 opacity-70 blur-sm";
+    }
+    if (index === right2) {
+      return "z-20 translate-x-80 scale-90 rotate-y-25 opacity-70 blur-sm";
+    }
+    return "opacity-0 pointer-events-none";
   };
 
   return (
-    <section className="relative w-full py-20 overflow-hidden">
-      {/* SVG Background Pattern */}
-      <svg className="absolute inset-0 w-full h-full opacity-20" aria-hidden="true">
-        <pattern id="chili-pattern" width="60" height="60" patternUnits="userSpaceOnUse">
-          <path d="M12.394 2.535a.5.5 0 00-.788 0l-7 11a.5.5 0 00.394.776h14a.5.5 0 00.394-.776l-7-11z" fill="orange" />
-        </pattern>
-        <rect width="100%" height="100%" fill="url(#chili-pattern)" />
-      </svg>
-
-      <div className="relative max-w-6xl mx-auto text-center z-10">
+    <section className="w-full bg-gradient-to-r from-orange-50 to-orange-100 py-20 overflow-hidden">
+      <div className="max-w-7xl mx-auto text-center">
         <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-14">
-          What Our Customers Say <span className="text-orange-600">❤️</span>
+          What Our Customers Say ❤️
         </h2>
 
-        <div className="relative flex justify-center items-center h-[400px]">
+        <div className="relative flex justify-center items-center perspective-[2000px] h-[420px]">
           {testimonials.map((t, index) => (
             <div
               key={index}
-              className={`absolute transition-all duration-700 ease-in-out transform-gpu ${getCardClass(
+              className={`absolute transition-all duration-700 ease-in-out transform-gpu ${getClass(
                 index
               )}`}
             >
-              <div className="bg-white rounded-3xl shadow-2xl px-8 py-10 w-[300px] md:w-[400px] border border-orange-200">
-                <div className="flex justify-center items-center mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <span key={i} className={`text-2xl ${i < t.rating ? 'text-yellow-500' : 'text-gray-300'}`}>★</span>
-                  ))}
-                </div>
-                <p className="text-lg md:text-xl font-bold text-gray-800 mb-6 leading-relaxed">
+              <div className="bg-white rounded-3xl px-10 py-12 w-[300px] md:w-[360px] shadow-xl hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.3)] hover:-translate-y-2 transition-all duration-500">
+                <p className="text-lg md:text-xl italic text-gray-700 mb-6 leading-relaxed">
                   "{t.feedback}"
                 </p>
-                <div className="flex flex-col items-center">
-                  <h4 className="text-xl font-semibold text-gray-900">
-                    {t.name}
-                  </h4>
-                  <span className="text-sm text-orange-600 font-medium">
-                    {t.role}
-                  </span>
-                </div>
+                <h4 className="text-xl font-semibold text-gray-900">
+                  {t.name}
+                </h4>
+                
               </div>
             </div>
           ))}
