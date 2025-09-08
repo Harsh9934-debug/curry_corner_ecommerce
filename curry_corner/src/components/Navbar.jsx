@@ -55,15 +55,20 @@ function Navbar() {
                   {item}
                 </a>
               ))}
-              <button className="ml-4 inline-flex items-center rounded-full bg-gradient-to-r from-orange-600 to-orange-800 px-4 py-2 text-sm font-semibold text-white shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200">
+              <button className="ml-4 inline-flex items-center rounded-full bg-gradient-to-r from-orange-500 to-orange-700 px-6 py-2.5 text-sm font-semibold text-white shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 transform">
                 Order Now
                 <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-4 w-4 ml-2"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
+                  className="w-4 h-4 ml-2"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 >
-                  <path d="M3 1a1 1 0 000 2h1.22l...z" />
+                  <circle cx="9" cy="21" r="1"></circle>
+                  <circle cx="20" cy="21" r="1"></circle>
+                  <path d="M1 1h4l2.68 12.65a2 2 0 002 1.35h9.42a2 2 0 002-1.63l2.81-11.66A2 2 0 0020.25 1H4"></path>
                 </svg>
               </button>
             </div>
@@ -134,15 +139,20 @@ function Navbar() {
               </a>
             ))}
             <div className="pt-4">
-              <button className="w-full flex justify-center items-center rounded-md bg-gradient-to-r from-orange-600 to-orange-800 px-4 py-2 text-base font-semibold text-white shadow hover:shadow-md transition">
+              <button className="w-full flex justify-center items-center rounded-md bg-gradient-to-r from-orange-500 to-orange-700 px-4 py-2 text-base font-semibold text-white shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 transform">
                 Order Now
                 <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-4 w-4 ml-2"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
+                  className="w-4 h-4 ml-2"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 >
-                  <path d="M3 1a1 1 0 000 2h1.22l...z" />
+                  <circle cx="9" cy="21" r="1"></circle>
+                  <circle cx="20" cy="21" r="1"></circle>
+                  <path d="M1 1h4l2.68 12.65a2 2 0 002 1.35h9.42a2 2 0 002-1.63l2.81-11.66A2 2 0 0020.25 1H4"></path>
                 </svg>
               </button>
             </div>

@@ -5,6 +5,7 @@ import Hero from './components/Hero.jsx';
 import Features from './components/Features.jsx';
 import Footer from './components/Footer.jsx';
 import Special from './components/Sepcial.jsx';
+import Testimonial from './components/Testimonial.jsx';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Hero />
       <Special />
       <Features />
+      <Testimonial />
       <Footer />
     </div>
   );
