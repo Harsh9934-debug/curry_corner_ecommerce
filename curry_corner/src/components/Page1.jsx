@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 function Page1() {
   const [currentImage, setCurrentImage] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   
   const images = [
     "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGJ1dHRlciUyMGNoaWNrZW58ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=1200&q=80",
@@ -15,18 +16,30 @@ function Page1() {
   const dishTitles = [
     "Butter Chicken Delight",
     "Tikka Masala Special",
-    "Creamy Palak Paneer",
-    "Fragrant Biryani Rice",
-    "Authentic Tandoori Chicken"
+    "Samosa",
+    "Chicken Briyani",
+    "Kadhi Paneer"
   ];
 
   const dishDescriptions = [
     "Tender chicken in rich tomato cream sauce with aromatic spices",
     "Grilled chicken chunks in our signature spiced curry sauce",
-    "Fresh spinach and cottage cheese in traditional herbs",
-    "Basmati rice infused with saffron and exotic spices",
-    "Marinated chicken cooked to perfection in clay oven"
+    "Crispy fried dumplings stuffed with potatoes and vegetables",
+    "Tender marinated chicken topped with cashews & cilantro.Served over basmati rice.",
+    "Paneer cooked in a rich,aromatic blend of spices,tomatoes & bell peppers"
   ];
+
+  // Check if mobile on mount and resize
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkIsMobile();
+    window.addEventListener('resize', checkIsMobile);
+    
+    return () => window.removeEventListener('resize', checkIsMobile);
+  }, []);
 
   // Continuous animation effect
   useEffect(() => {
@@ -73,84 +86,61 @@ function Page1() {
       
       {/* Content overlay with continuous text animation */}
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="text-center text-white p-8 max-w-4xl mx-auto">
-          
+        <div className="text-center text-white p-4 md:p-8 max-w-4xl mx-auto">
           {/* Animated title with continuous text change */}
-          <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-orange-100 bg-clip-text text-transparent drop-shadow-2xl transition-all duration-1000">
+          <h2 className="text-2xl md:text-4xl lg:text-6xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-white to-orange-100 bg-clip-text text-transparent drop-shadow-2xl transition-all duration-1000">
             {dishTitles[currentImage]}
           </h2>
           
           {/* Animated description with continuous text change */}
-          <p className="text-xl md:text-2xl max-w-2xl mx-auto mb-8 text-orange-100 drop-shadow-md transition-all duration-1000">
+          <p className="text-sm md:text-xl lg:text-2xl max-w-xs md:max-w-2xl mx-auto mb-4 md:mb-8 text-orange-100 drop-shadow-md transition-all duration-1000">
             {dishDescriptions[currentImage]}
           </p>
           
           {/* Animated button with continuous hover effect */}
-          <button className="bg-gradient-to-r from-orange-600 to-orange-800 hover:from-orange-700 hover:to-orange-900 text-white font-semibold py-4 px-10 rounded-full transition-all duration-500 transform hover:scale-110 shadow-2xl hover:shadow-3xl group relative overflow-hidden">
-            <span className="relative z-10">Order Now</span>
-            <span className="absolute inset-0 bg-gradient-to-r from-orange-700 to-orange-900 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
-            <span className="absolute inset-0 -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-white/20"></span>
-          </button>
+          
         </div>
       </div>
-      {/* Navigation arrows with continuous pulse effect */}
+      
+      {/* Navigation arrows - smaller on mobile */}
       <button
         onClick={prevImage}
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-4 rounded-full transition-all duration-300 z-10 backdrop-blur-sm animate-pulse-slow"
+        className={`absolute left-2 md:left-4 top-1/2 transform -translate-y-1/2 text-white rounded-full transition-all duration-300 z-10 ${isMobile ? 'p-2' : 'p-3 md:p-4'} animate-pulse-slow`}
       >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className={`${isMobile ? 'w-4 h-4' : 'w-6 h-6'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
         </svg>
       </button>
       
       <button
         onClick={nextImage}
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-4 rounded-full transition-all duration-300 z-10 backdrop-blur-sm animate-pulse-slow"
+        className={`absolute right-2 md:right-4 top-1/2 transform -translate-y-1/2 text-white rounded-full transition-all duration-300 z-10 ${isMobile ? 'p-2' : 'p-3 md:p-4'} animate-pulse-slow`}
       >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className={`${isMobile ? 'w-4 h-4' : 'w-6 h-6'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
         </svg>
       </button>
-      
-      {/* Animated navigation dots with continuous glow */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-4 z-10">
-        {images.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentImage(index)}
-            className={`w-4 h-4 rounded-full transition-all duration-500 ${index === currentImage ? 'bg-orange-500 scale-125 ring-4 ring-orange-200/50' : 'bg-white/70 hover:bg-white'}`}
-            aria-label={`Go to slide ${index + 1}`}
-          >
-            {index === currentImage && (
-              <span className="absolute inset-0 rounded-full bg-orange-500 animate-ping opacity-75"></span>
-            )}
-          </button>
-        ))}
-      </div>
-      
-     
+  
 
       <style jsx>{`
-        @keyframes float-slow {
-          0%, 100% { transform: translateY(0) rotate(3deg); }
-          50% { transform: translateY(-15px) rotate(3deg); }
-        }
-        @keyframes float-medium {
-          0%, 100% { transform: translateY(0) rotate(-6deg); }
-          50% { transform: translateY(-10px) rotate(-6deg); }
-        }
         @keyframes pulse-slow {
           0%, 100% { transform: scale(1); opacity: 0.7; }
           50% { transform: scale(1.05); opacity: 1; }
         }
-        .animate-float-slow {
-          animation: float-slow 6s ease-in-out infinite;
-        }
-        .animate-float-medium {
-          animation: float-medium 4s ease-in-out infinite;
-        }
         .animate-pulse-slow {
           animation: pulse-slow 3s ease-in-out infinite;
+        }
+        
+        /* Touch-friendly styles for mobile */
+        @media (max-width: 768px) {
+          button {
+            -webkit-tap-highlight-color: transparent;
+          }
+          
+          /* Prevent zoom on double-tap */
+          .carousel-content {
+            touch-action: manipulation;
+          }
         }
       `}</style>
     </section>
