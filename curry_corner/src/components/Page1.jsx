@@ -6,8 +6,8 @@ function Page1() {
   
   const images = [
     "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGJ1dHRlciUyMGNoaWNrZW58ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=1200&q=80",
-    "https://images.unsplash.com/photo-1585937421612-70a008356fbe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hpY2tlbiUyMHRpa2thJTIwbWFzYWxhfGVufDB8fDB8fHww&auto=format&fit=crop&w=1200&q=80",
-    "https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGFsYWslMjBwYW5lZXJ8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1585937421612-70a008356fbe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hpY2tlbiUyMHRpa2thJTIwbWFzYWxhfGVlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1601050690597-df0568f02050?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGFsYWslMjBwYW5lZXJ8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=1200&q=80",
     "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YmlyYW5pJTIwcmljZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=1200&q=80",
     "https://images.unsplash.com/photo-1668236543090-82eba5ee5976?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHRhbmRvb3JpJTIwY2hpY2tlbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=1200&q=80"
   ];
@@ -29,7 +29,7 @@ function Page1() {
   ];
 
   useEffect(() => {
-    if (isHovered) return; // Pause animation when hovered
+    if (isHovered) return;
     
     const interval = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % images.length);
@@ -49,19 +49,19 @@ function Page1() {
   return (
     <section 
       id="menu" 
-      className="relative w-full h-[55vh] md:h-[65vh] lg:h-[90vh] overflow-hidden"
+      className="relative w-full h-[65vh] md:h-[65vh] lg:h-[90vh] overflow-hidden"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       {images.map((img, index) => (
         <div 
           key={index}
-          className={`absolute inset-0 transition-all duration-1000 ease-in-out ${index === currentImage ? 'opacity-100 scale-100' : 'opacity-0 scale-105'}`}
+          className={`absolute inset-0 transition-all duration-1000 ease-in-out ${index === currentImage ? 'opacity-100' : 'opacity-0'}`}
         >
           <img 
             src={img} 
             alt={`Special dish ${index + 1}`}
-            className="w-full h-full object-cover"
+            className={`w-full h-full object-cover transition-transform duration-[4000ms] ease-in-out ${index === currentImage ? 'scale-110' : 'scale-100'}`}
           />
           
           {/* Animated gradient overlay */}
@@ -72,10 +72,10 @@ function Page1() {
             <span className="inline-block bg-orange-500 text-white text-sm font-semibold px-4 py-1 rounded-full mb-4 animate-pulse">
               Today's Special
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-white to-orange-100 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-white to-orange-100 bg-clip-text text-transparent drop-shadow-lg">
               {dishTitles[index]}
             </h2>
-            <p className="text-xl md:text-2xl max-w-2xl mx-auto mb-6 text-orange-100">
+            <p className="text-xl md:text-2xl max-w-2xl mx-auto mb-6 text-orange-100 drop-shadow-md">
               {dishDescriptions[index]}
             </p>
             <button className="bg-orange-600 hover:bg-orange-700 text-white font-semibold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl group">
@@ -127,16 +127,6 @@ function Page1() {
           style={{ width: isHovered ? '0%' : '100%' }}
           key={currentImage}
         ></div>
-      </div>
-      
-      {/* Floating elements */}
-      <div className="absolute top-6 right-6 hidden lg:block">
-        <div className="bg-white/10 backdrop-blur-md rounded-lg p-3 border border-white/20 animate-float">
-          <div className="text-white text-center">
-            <div className="text-2xl font-bold">$16.99</div>
-            <div className="text-sm">Special Price</div>
-          </div>
-        </div>
       </div>
     </section>
   );
