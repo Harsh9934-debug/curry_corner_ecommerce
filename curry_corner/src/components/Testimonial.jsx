@@ -30,37 +30,43 @@ const testimonials = [
 function TestimonialSection() {
   const [current, setCurrent] = useState(0);
 
-  // Auto rotate every 5 seconds
+  // Auto rotate
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % testimonials.length);
-    }, 5000);
+    }, 4000);
     return () => clearInterval(interval);
   }, []);
 
+  const getClass = (index) => {
+    if (index === current) {
+      return "z-20 scale-100 rotate-y-0 opacity-100";
+    }
+    if (index === (current - 1 + testimonials.length) % testimonials.length) {
+      return "z-10 -translate-x-48 scale-90 -rotate-y-20 opacity-70";
+    }
+    if (index === (current + 1) % testimonials.length) {
+      return "z-10 translate-x-48 scale-90 rotate-y-20 opacity-70";
+    }
+    return "opacity-0 pointer-events-none";
+  };
+
   return (
     <section className="w-full bg-gradient-to-r from-orange-50 to-orange-100 py-20 overflow-hidden">
-      <div className="max-w-5xl mx-auto text-center">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-12">
+      <div className="max-w-6xl mx-auto text-center">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-14">
           What Our Customers Say ❤️
         </h2>
 
-        <div className="relative perspective-[1200px] h-[300px] flex items-center justify-center">
+        <div className="relative flex justify-center items-center perspective-[2000px] h-[350px]">
           {testimonials.map((t, index) => (
             <div
               key={index}
-              className={`absolute w-full max-w-3xl px-6 transition-all duration-1000 ease-in-out`}
-              style={{
-                transform:
-                  index === current
-                    ? "rotateY(0deg) scale(1)"
-                    : index < current
-                    ? "rotateY(-90deg) scale(0.9)"
-                    : "rotateY(90deg) scale(0.9)",
-                opacity: index === current ? 1 : 0,
-              }}
+              className={`absolute transition-all duration-700 ease-in-out transform ${getClass(
+                index
+              )}`}
             >
-              <div className="bg-white rounded-3xl shadow-2xl px-10 py-12 transform transition duration-500 hover:rotate-1 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)]">
+              <div className="bg-white rounded-3xl shadow-2xl px-10 py-12 w-[320px] md:w-[380px] hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.4)]">
                 <p className="text-lg md:text-xl italic text-gray-700 mb-6 leading-relaxed">
                   "{t.feedback}"
                 </p>
@@ -75,13 +81,13 @@ function TestimonialSection() {
           ))}
         </div>
 
-        {/* Navigation dots */}
+        {/* Dots Navigation */}
         <div className="flex justify-center mt-10 space-x-3">
           {testimonials.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrent(index)}
-              className={`w-4 h-4 rounded-full transition-all duration-300 ${
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
                 index === current
                   ? "bg-orange-600 scale-125 shadow-md"
                   : "bg-gray-300 hover:bg-orange-400"

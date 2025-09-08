@@ -5,22 +5,14 @@ function Special() {
   const [isHovered, setIsHovered] = useState(false);
   
   const images = [
-    "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGJ1dHRlciUyMGNoaWNrZW58ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=1200&q=80",
     "https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Y2hpY2tlbiUyMHRpa2thJTIwbWFzYWxhfGVufDB8fDB8fHww&auto=format&fit=crop&w=1200&q=80",
     "https://images.unsplash.com/photo-1585937421612-70a008356fbe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hpY2tlbiUyMDY1fGVufDB8fDB8fHww&auto=format&fit=crop&w=1200&q=80",
     "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YmlyYW5pJTIwcmljZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=1200&q=80",
-    "https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGFsYWslMjBwYW5lZXJ8ZW58MHx8MHx8fDA%3D%3D&auto=format&fit=crop&w=1200&q=80"
+    "https://images.unsplash.com/photo-1633617477271-d4f351ff7c7c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fG11dHRvbiUyMGJpcnlhbml8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fG1hbGFpSUtPJTIwY29mdHRhfGVufDB8fDB8fHww&auto=format&fit=crop&w=1200&q=80"
   ];
 
   const dishes = [
-    { 
-      name: "Butter Chicken", 
-      price: "$16.99", 
-      description: "Chicken cooked in a mild buttery curry sauce",
-      spiceLevel: 2,
-      cookingTime: "25 min",
-      bestseller: true
-    },
     { 
       name: "Chicken Tikka Masala", 
       price: "$15.99", 
@@ -37,18 +29,27 @@ function Special() {
       appetizer: true
     },
     { 
-      name: "Lamb Biryani", 
-      price: "$16.99", 
-      description: "Fragrant basmati rice with tender lamb, saffron & aromatic spices",
-      spiceLevel: 3,
-      cookingTime: "40 min"
+      name: "Vegetable Biryani", 
+      price: "$14.99", 
+      description: "Fragrant basmati rice with mixed vegetables, saffron & aromatic spices",
+      spiceLevel: 2,
+      cookingTime: "35 min",
+      vegetarian: true
     },
     { 
-      name: "Palak Paneer", 
-      price: "$14.99", 
-      description: "Indian cheese cubes in fresh spinach sauce with traditional herbs",
+      name: "Mutton Biryani", 
+      price: "$18.99", 
+      description: "Tender mutton pieces layered with fragrant basmati rice and spices",
+      spiceLevel: 4,
+      cookingTime: "45 min",
+      bestseller: true
+    },
+    { 
+      name: "Malai Kofta", 
+      price: "$16.99", 
+      description: "Cottage cheese dumplings in creamy tomato sauce with nuts",
       spiceLevel: 2,
-      cookingTime: "20 min",
+      cookingTime: "25 min",
       vegetarian: true
     }
   ];
