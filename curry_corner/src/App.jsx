@@ -6,6 +6,7 @@ import Features from './components/Features.jsx';
 import Footer from './components/Footer.jsx';
 import Special from './components/Sepcial.jsx';
 import Testimonial from './components/Testimonial.jsx';
+import { Analytics } from "@vercel/analytics/react"
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Features />
       <Testimonial />
       <Footer />
+      <Analytics />
     </div>
   );
 }
