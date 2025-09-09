@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import menu from "../assets/menu.pdf";  // adjust path as needed
 
 function Special() {
   const [currentImage, setCurrentImage] = useState(0);
@@ -204,14 +205,22 @@ function Special() {
       </div>
       
       {/* Call to action */}
-      <div className="mt-12 text-center">
-        <button className="bg-gradient-to-r from-orange-600 to-orange-800 hover:from-orange-700 hover:to-orange-900 text-white font-semibold py-3 px-8 md:py-4 md:px-12 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 inline-flex items-center text-base md:text-lg">
-          Explore Full Menu
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 md:h-6 md:w-6 ml-3" viewBox="0 0 20 20" fill="currentColor">
-            <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-          </svg>
-        </button>
-      </div>
+     {/* Call to action */}
+<div className="mt-12 text-center">
+  <a
+    href={menu}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="bg-gradient-to-r from-orange-600 to-orange-800 hover:from-orange-700 hover:to-orange-900 text-white font-semibold py-3 px-8 md:py-4 md:px-12 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 inline-flex items-center text-base md:text-lg"
+  >
+    Explore Full Menu
+    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 md:h-6 md:w-6 ml-3" viewBox="0 0 20 20" fill="currentColor">
+      <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+    </svg>
+  </a>
+</div>
+
+
     </section>
   );
 }
