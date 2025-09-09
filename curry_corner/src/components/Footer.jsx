@@ -80,7 +80,7 @@ function Footer() {
             <a href="#" className="hover:text-orange-700">
               <Instagram className="w-5 h-5" />
             </a>
-            <a href="tel: 9202877519" className="hover:text-orange-700">
+            <a href="tel: + 9202877519" className="hover:text-orange-700">
               <Phone className="w-5 h-5" />
             </a>
           </div>
