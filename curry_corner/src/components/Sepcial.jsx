@@ -150,18 +150,7 @@ function Special() {
               
               <p className="text-amber-100 mb-4 text-sm md:text-base drop-shadow-md max-w-md">{dishes[index].description}</p>
               
-              <div className="flex items-center space-x-6 text-sm">
-                <div className="flex items-center bg-black/30 px-3 py-1 rounded-full">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2 text-amber-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  <span>{dishes[index].cookingTime}</span>
-                </div>
-                <div className="flex items-center bg-black/30 px-3 py-1 rounded-full">
-                  {renderSpiceLevel(dishes[index].spiceLevel)}
-                  <span className="ml-2">{['Mild', 'Medium', 'Spicy', 'Hot', 'Extra Hot'][dishes[index].spiceLevel - 1]}</span>
-                </div>
-              </div>
+             
             </div>
           </div>
         ))}
