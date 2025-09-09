@@ -7,9 +7,9 @@ function Special() {
   const images = [
     "https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Y2hpY2tlbiUyMHRpa2thJTIwbWFzYWxhfGVufDB8fDB8fHww&auto=format&fit=crop&w=1200&q=80",
     "https://images.unsplash.com/photo-1585937421612-70a008356fbe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hpY2tlbiUyMDY1fGVufDB8fDB8fHww&auto=format&fit=crop&w=1200&q=80",
-    "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YmlyYW5pJTIwcmljZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=1200&q=80",
-    "https://images.unsplash.com/photo-1633617477271-d4f351ff7c7c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fG11dHRvbiUyMGJpcnlhbml8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=1200&q=80",
-    "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fG1hbGFpSUtPJTIwY29mdHRhfGVufDB8fDB8fHww&auto=format&fit=crop&w=1200&q=80"
+    "https://images.unsplash.com/photo-1603133872878-684f208fb84b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8dGFuZG9vcmklMjBjaGlja2VufGVufDB8fDB8fHww&auto=format&fit=crop&w=2000&q=80",
+    "https://media.istockphoto.com/id/1410130688/photo/mutton-biryani-served-in-a-golden-dish-isolated-on-dark-background-side-view-indian-food.jpg?s=612x612&w=0&k=20&c=ueFrghYZuKAty-rFVe5dtMtNIbn0jaUsSvCUwTVOmd8=",
+    "https://www.carveyourcraving.com/wp-content/uploads/2021/09/How-to-make-Malai-Kofta.jpg"
   ];
 
   const dishes = [
@@ -17,40 +17,40 @@ function Special() {
       name: "Chicken Tikka Masala", 
       price: "$15.99", 
       description: "Marinated chicken simmered in rich creamy tomato-based sauce",
-      spiceLevel: 3,
-      cookingTime: "30 min"
+      // spiceLevel: 3,
+      // cookingTime: "30 min"
     },
     { 
       name: "Chicken 65", 
       price: "$13.99", 
       description: "Boneless chicken marinated in yogurt, curry leaves, green chilies & tamarind",
-      spiceLevel: 4,
-      cookingTime: "20 min",
+      // spiceLevel: 4,
+      // cookingTime: "20 min",
       appetizer: true
     },
     { 
       name: "Vegetable Biryani", 
       price: "$14.99", 
       description: "Fragrant basmati rice with mixed vegetables, saffron & aromatic spices",
-      spiceLevel: 2,
-      cookingTime: "35 min",
+      // spiceLevel: 2,
+      // cookingTime: "35 min",
       vegetarian: true
     },
     { 
       name: "Mutton Biryani", 
       price: "$18.99", 
       description: "Tender mutton pieces layered with fragrant basmati rice and spices",
-      spiceLevel: 4,
-      cookingTime: "45 min",
-      bestseller: true
+      // spiceLevel: 4,
+      // cookingTime: "45 min",
+      // bestseller: true
     },
     { 
       name: "Malai Kofta", 
       price: "$16.99", 
       description: "Cottage cheese dumplings in creamy tomato sauce with nuts",
-      spiceLevel: 2,
-      cookingTime: "25 min",
-      vegetarian: true
+      // spiceLevel: 2,
+      // cookingTime: "25 min",
+      // vegetarian: true
     }
   ];
 
@@ -82,7 +82,7 @@ function Special() {
             fill="currentColor"
             viewBox="0 0 20 20"
           >
-            <path d="M12.394 2.535a.5.5 0 00-.788 0l-7 11a.5.5 0 00.394.776h14a.5.5 0 00.394-.776l-7-11z" />
+            {/* <path d="M12.394 2.535a.5.5 0 00-.788 0l-7 11a.5.5 0 00.394.776h14a.5.5 0 00.394-.776l-7-11z" /> */}
           </svg>
         ))}
       </div>
@@ -93,11 +93,8 @@ function Special() {
     <section id="specials" className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-16 md:py-24">
       {/* Header */}
       <div className="text-center mb-16">
-        <div className="inline-flex items-center justify-center bg-gradient-to-r from-orange-500 to-amber-500 text-white text-sm font-semibold px-4 py-2 rounded-full mb-4 shadow-lg transform -rotate-1">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2" viewBox="0 0 20 20" fill="currentColor">
-            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-          </svg>
-          Chef's Special Selection
+        <div className="inline-flex items-center justify-center bg-gradient-to-r from-orange-500 to-amber-500 text-white text-sm font-semibold  rounded-full mb-4 shadow-lg transform -rotate-1">
+          
         </div>
         <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
           Today's Specialties
@@ -225,13 +222,6 @@ function Special() {
             <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
           </svg>
         </button>
-        
-        <p className="text-sm text-gray-500 mt-4 flex items-center justify-center">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
-          </svg>
-          Click on the thumbnails to explore our specials
-        </p>
       </div>
     </section>
   );
