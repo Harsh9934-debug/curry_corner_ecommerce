@@ -2,28 +2,28 @@ import React, { useEffect, useState } from "react";
 
 const testimonials = [
   {
-    name: "Sophia M.",
+    name: "Nichols, Jillyan.",
     feedback:
-      "The food here is absolutely divine! The Biryani Rice was so fragrant and full of flavor.",
+      "highly recommend! the food was incredible. best samosas i’ve ever had. even our 6 & 3 year old loved them! our dishes were full of flavor and the staff was friendly and attentive.",
     // role: "Food Blogger",
     rating: 5, // Added rating for potential future use or visual enhancement
   },
   {
-    name: "Liam R.",
+    name: "Mann, Tyler.",
     feedback:
-      "Butter Chicken melted in my mouth — easily the best I’ve had in years!",
+      "Fantastic food, would absolutely recommend it to everyone",
     // role: "Chef",
     rating: 5,
   },
   {
-    name: "Isabella K.",
+    name: "Chokshi, Shachi.",
     feedback:
-      "The Palak Paneer was creamy, rich, and cooked to perfection. Highly recommend!",
+      "Delicious food with most reasonable price, staff is polite, property is new and clean… highly recommend for food lovers",
     // role: "Vegetarian Enthusiast",
     rating: 4,
   },
   {
-    name: "Ethan D.",
+    name: "Villareal, Samantha.",
     feedback:
       "Tandoori Chicken was smoky, juicy, and bursting with spices. A real masterpiece.",
     // role: "Traveler",
@@ -32,16 +32,9 @@ const testimonials = [
   {
     name: "Olivia P.",
     feedback:
-      "From presentation to taste, every dish was a delight. I'll definitely return!",
+      "Highly recommend, food was delicious! I will definitely be back.",
     // role: "Food Critic",
     rating: 5,
-  },
-  {
-    name: "Noah B.",
-    feedback:
-      "The flavors were bold yet balanced. Truly a top-notch dining experience.",
-    // role: "Gourmet Enthusiast",
-    rating: 4,
   },
 ];
 
