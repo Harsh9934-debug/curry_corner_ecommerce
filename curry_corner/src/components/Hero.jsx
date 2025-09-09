@@ -1,5 +1,4 @@
 import React from 'react';
-import image from '../assets/image.png';
 
 function Hero() {
   return (
@@ -19,7 +18,11 @@ function Hero() {
         </div>
         <div className="relative">
           <div className="absolute -inset-6 -z-10 bg-gradient-to-tr from-orange-200 via-orange-100 to-transparent rounded-3xl" />
-          <img src={image} alt="Signature curry bowl" className="w-full max-w-lg mx-auto rounded-3xl shadow-md" />
+          <img
+            src="https://static.wixstatic.com/media/0aff6f_38fcdf2d22ef45379ffed56f59efff13~mv2.jpg/v1/crop/x_155,y_494,w_2514,h_947/fill/w_600,h_226,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_0337_edited.jpg"
+            alt="Signature curry bowl"
+            className="w-full max-w-lg mx-auto rounded-3xl shadow-md"
+          />
         </div>
       </div>
     </section>
@@ -27,5 +30,3 @@ function Hero() {
 }
 
 export default Hero;
-
-
